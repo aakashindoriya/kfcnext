@@ -1,21 +1,33 @@
 import { AUTH_LOGIN_FAILURE, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGOUT, AUTH_REGISTER_FAILURE, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS } from "../actionTypes/auth.actionTypes";
 import axios from "axios";
-
+import Cookies from "js-cookie";
 
 export const authRegister = (data) => async (dispatch) => {
+    console.log(data)
+    return
     try {
         dispatch({ type: AUTH_REGISTER_REQUEST });
-        const res = await axios.post("https://cultwear.onrender.com/user/register", data);
-        res.data.data = { ...res.data.data, message: res.data.message };
-        dispatch({
+        const res = await axios.post("../api/user/signup", {...data.data})
+        Cookies.set("user",JSON.stringify({...data.data}))
+        data.toast({
+            title: `Welcome to KFC`,
+            description: "Registration successfull",
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+            position:"top"
+        });
+        data.router.push("/home/login");
+        return dispatch({
             type: AUTH_REGISTER_SUCCESS,
-            payload: res.data.data,
+            payload: res.data,
         });
     } catch (error) {
-        dispatch({
+        console.log(error)
+        return dispatch({
             type: AUTH_REGISTER_FAILURE,
             payload: {
-                message: error.response.data.message,
+                message: error.response.data,
             },
         });
     }
@@ -24,12 +36,13 @@ export const authRegister = (data) => async (dispatch) => {
 
 export const authLogin = (data) => async (dispatch) => {
     try {
+        console.log(data)
         dispatch({ type: AUTH_LOGIN_REQUEST });
-        const res = await axios.post("https://cultwear.onrender.com/user/login", data);
-        res.data.data = { ...res.data.data, message: res.data.message };
-        dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data.data });
+        const res = await axios.post("../api/user/login", data);
+        dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data });
     } catch (error) {
-        dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data.message } });
+        console.log(error)
+        // dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data } });
     }
 }
 

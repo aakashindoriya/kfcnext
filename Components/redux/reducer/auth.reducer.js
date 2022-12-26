@@ -18,6 +18,7 @@ import {
       isAuthenticated: Cookies.get("token") ? true : false,
       token: Cookies.get("token") || null,
       user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
+      isLogin:Cookies.get("token")?true:false
     },
   };
   
@@ -27,21 +28,13 @@ import {
         return { ...state, userLogin: { loading: true, error: false } };
       case AUTH_LOGIN_SUCCESS:
         Cookies.set("token", payload.token);
-        Cookies.set(
-          "user",
-          JSON.stringify({
-            name: payload.user.name,
-            email: payload.user.email,
-            _id: payload.user._id,
-          })
-        );
         return {
           ...state,
           userLogin: { loading: false, error: false, message: payload.message },
           data: {
             isAuthenticated: true,
             token: payload.token,
-            user: payload.user,
+            isLogin:true
           }
         };
       case AUTH_LOGIN_FAILURE:
@@ -66,22 +59,12 @@ import {
           userRegister: { loading: true, error: false },
         };
       case AUTH_REGISTER_SUCCESS:
-        Cookies.set("token", payload.token);
-        Cookies.set(
-          "user",
-          JSON.stringify({
-            name: payload.user.name,
-            email: payload.user.email,
-            _id: payload.user._id,
-          })
-        );
         return {
           ...state,
           userRegister: { loading: false, error: false, message: payload.message },
           data: {
             isAuthenticated: true,
-            token: payload.token,
-            user: payload.user,
+            user: {...payload},
           }
         };
       case AUTH_REGISTER_FAILURE:

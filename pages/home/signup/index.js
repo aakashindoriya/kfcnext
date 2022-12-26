@@ -1,6 +1,8 @@
-import { Box, Button, Center, Divider, Image, Input,  InputGroup,  InputRightElement,  Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Divider, Image, Input,  InputGroup,  InputRightElement,  Spinner,  Stack, Text, useToast } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useEffect ,useState} from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authRegister } from "../../../Components/redux/actions/auth.actions";
 let obj={
     name:"",
     email:"",
@@ -9,16 +11,32 @@ let obj={
 }
 
 export default function Signup(){
+    const router=useRouter()
     let [data,setdata]=useState(obj)
     let [show,setShow]=useState(false)
-    const auth=useSelector((store)=>store.auth)
-    console.log(auth)
+    const { userRegister: { loading, error, message }, data: { isAuthenticated, token, user } } = useSelector(state => state.auth);    const dispatch = useDispatch();
+    const toast = useToast();
     function HandleForm(e){
         setdata({...data,[e.target.name]:e.target.value})
     }
     function HandleSubmit(){
-        
+        dispatch(authRegister({data,toast,router}))
     }
+    useEffect(() => {
+      if (error) {
+          toast({
+              title: message,
+              description: 'Please try again',
+              status: "error",
+              duration: 2000,
+              isClosable: true,
+          });
+      }
+  }, [error]);
+
+  if(loading){
+    return(<Box w="100%" h="100%"><Center w="100%" h="100%" ><Spinner size={"xl"} /></Center></Box>)
+  }
  return (
     <Box>
         <Box w="450px" m={"auto"} display="grid" gap={5}>

@@ -1,51 +1,60 @@
 
-import { Box, Button, Center, Divider, Image, Input, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Divider, Image, Input, Spinner, Stack, Text, useToast } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
-import axios from  "axios"
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authLogin } from "../../../Components/redux/actions/auth.actions";
 let obj={
-    name:"",
     email:"",
     password:""
 }
 
 export default function Login(){
-    function GetData(){
-        return axios("https://mkibap.onrender.com/users")
-        }
     let [data,setdata]=useState(obj)
-    let [users,SetUsers]=useState([])
+    let dispatch=useDispatch()
+    let toast=useToast()
+    let router=useRouter()
+    const { userRegister: { loading, error, message }, data: { isAuthenticated, token, user,isLogin } } = useSelector(state => state.auth);
     useEffect(()=>{
-        GetData().then((res)=>SetUsers(res.data))
+        if (isLogin) {
+            toast({
+                title: `Welcome to KFC}`,
+                description: "Login successfull",
+                status: "success",
+                duration: 2000,
+                isClosable: true,
+            });
+            let time = setTimeout(() => {
+                router.push("/home");
+            }, 3000);
+            return () => clearTimeout(time);
+        }
+        if (error) {
+            toast({
+                title: message,
+                description: 'Please try again',
+                status: "error",
+                duration: 2000,
+                isClosable: true,
+            });
+        }
 
-    },[])
+    },[isLogin,error])
     function HandleSignIn(){
-        if(users.length!==0){
-            let arr=users.filter((el)=>el.email===data.email&&el.password===data.password)
-        if(arr.length===0){
-            AuthDispatch({type:"loginfailed"})
-            alert("Invalid Creadentials")
-        }
-        else{
-            AuthDispatch({type:"loginsucess",paylode:"farzitoken"})
-            navigate("/menu")
-        }
-        
-        }else{
-            AuthDispatch({type:"loginfailed"})
-            alert("Invalid Creadentials")
-        }
+       dispatch(authLogin(data))
 
     }
     function HandleForm(e){
         setdata({...data,[e.target.name]:e.target.value})
     }
+    if(loading){
+        return(<Box w="100%" h="100%"><Center w="100%" h="100%" ><Spinner size={"xl"} /></Center></Box>)
+      }
  return (
     <Box>
         <Box w="450px" m={"auto"} display="grid" gap={5}>
-            <Box as="b" fontSize={"14px"}>Sign In / Sign up</Box>
-
-        
+            <Box as="b" fontSize={"14px"}>Sign In / Sign up</Box> 
         <Center>
         <Box>
             <Image src="https://login.kfc.co.in/auth/resources/1vkce/login/kfcIndiaLoginUIDev_2022_08_04/images/KFC_logo.svg" />
