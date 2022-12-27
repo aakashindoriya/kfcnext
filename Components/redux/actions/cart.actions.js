@@ -30,6 +30,12 @@ export const addProductToCart = (id) => async (dispatch) => {
                 Authorization: Cookies.get("token"),
             },
         });
+        const ress = await axios.get(`../../api/cart`, {
+            headers: {
+                Authorization: Cookies.get("token"),
+            },
+        });
+        dispatch({ type: GET_CART_SUCCESS, payload: ress.data.data });
     
         return dispatch({
             type: ADD_TO_CART_SUCCESS,
@@ -40,7 +46,6 @@ export const addProductToCart = (id) => async (dispatch) => {
         });
 
     } catch (error) {
-        console.log(error)
         dispatch({
             type: ADD_TO_CART_FAILURE,
             payload: { message: error.message }

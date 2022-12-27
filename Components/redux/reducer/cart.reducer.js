@@ -64,7 +64,7 @@ import {
             ...state,
             loading: false,
             error: false,
-            carts:arr4,
+            carts:[...arr4],
             total:arr4.reduce((ac,el)=>ac+(Number(el.quantity)*Number(el.productId.price)),0)
           }
           return obj2 ;
@@ -74,7 +74,7 @@ import {
             ...state,
             loading: false,
             error: false,
-            carts:arr3, 
+            carts:[...arr3], 
             total:arr3.reduce((ac,el)=>ac+(Number(el.quantity)*Number(el.productId.price)),0)
 
           }

@@ -15,7 +15,7 @@ export default function Navbar(){
                         <Image h={"23px"} w="73px" src="https://online.kfc.co.in/static/media/kfcLogo.492728c6.svg"  alt="Kfc logo"/>
                 </Link>
                 <Spacer />
-                {!isMobile&&<Link href="/home/menu">
+                {!isMobile&&<Link href="/home/menu/CHICKEN%20BUCKETS">
                 <Button variant='link'><Text as="b">Menu</Text></Button>
                 </Link>}
                 <Spacer />

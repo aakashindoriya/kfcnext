@@ -1,4 +1,5 @@
 import { Box, Button, Center, Divider, Image, Input,  InputGroup,  InputRightElement,  Spinner,  Stack, Text, useToast } from "@chakra-ui/react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect ,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -74,7 +75,7 @@ export default function Signup(){
             <Button w="full" variant='outline' onClick={HandleSubmit} >sign in</Button>
         </Box>
         <Box> 
-        <Text fontSize={"12px"}>Already have an account ? </Text>
+        <Text fontSize={"12px"}>Already have an account ?{<Link href="/home/login">Login</Link>} </Text>
         </Box>
         </Box>
     </Box>

@@ -26,7 +26,7 @@ export default function Login(){
                 isClosable: true,
             });
             let time = setTimeout(() => {
-                router.push("/home");
+                router.push("/");
             }, 3000);
             return () => clearTimeout(time);
         }

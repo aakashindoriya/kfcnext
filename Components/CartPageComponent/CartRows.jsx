@@ -1,24 +1,16 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { removeProductFromCart, updateProductInCart } from "../redux/actions/cart.actions";
 
-function CartRow({image,title,desc,Quantity,price,_id}){
+function CartRow(props){
+  let dispatch=useDispatch()
+  let {image,title,desc,quantity,price,_id}=props.productId
 
-  
-
-    function handleQuantity(val){
-        let valuse=count+val
-        if(valuse<1){
-            
-            setCount(1)
-           
-            dispatch({type:"remove",paylode:_id})
-            return;
-
-        }
-        setCount(valuse)
-       
-        let arr=state.Cart.map((el)=>el._id===_id?{...el,Quantity:valuse}:el)
-        
-        dispatch({type:"quantity",paylode:arr})
+    function handleQuantity(quantity){
+        if(quantity<=0){
+            return dispatch(removeProductFromCart(props._id))
+         }
+         dispatch(updateProductInCart(props._id,quantity))
     }
 
 
@@ -42,9 +34,9 @@ function CartRow({image,title,desc,Quantity,price,_id}){
             </Flex>
             <Flex  gap={3} alignItems={"center"}>
                 <Box>
-                    <Button p={1} mr={2} colorScheme='teal' variant='outline' borderRadius={"full"} onClick={()=>handleQuantity(-1)}>-</Button>
-                    {Quantity}
-                    <Button p={1} ml={2} colorScheme='teal' variant='outline' borderRadius={"full"} onClick={()=>handleQuantity(1)}>+</Button>
+                    <Button p={1} mr={2} colorScheme='teal' variant='outline' borderRadius={"full"} onClick={()=>handleQuantity(props.quantity-1)}>-</Button>
+                    {props.quantity}
+                    <Button p={1} ml={2} colorScheme='teal' variant='outline' borderRadius={"full"} onClick={()=>handleQuantity(props.quantity+1)}>+</Button>
                 </Box>
                 <Box>
                     <Text>{price}</Text>
