@@ -12,7 +12,7 @@ function CartPage(){
             <Box position="relative" >
                 <Center>
                 <Image  src="https://online.kfc.co.in/static/media/empty_cart.32f17a45.png" />
-               <Box pos={"absolute"}><Link href="home/menu"><Button >Start order</Button></Link></Box>
+               <Box pos={"absolute"}><Link href="/home/menu/CHICKEN%20BUCKETS"><Button >Start order</Button></Link></Box>
                 </Center>
             </Box>
         )
