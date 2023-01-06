@@ -1,6 +1,7 @@
 import {GETPRODUCTS_ERROR,GETPRODUCTS_LODING,GETPRODUCTS_SUCCESS} from "../actionTypes/menu.actiontypes"
 
 let init={
+    data:[],
     chicken:[],
     launch:[],
     boxmeals:[],
@@ -26,6 +27,7 @@ export const menuReducer=(state=init,{type,paylode})=>{
                 let bvg=paylode.filter((el)=>el.type=="beverages")
                 let sty=paylode.filter((el)=>el.type=="stayhome")
              return{...state,
+                data:[...paylode],
                 chicken:[...c],
                 boxmeals:[...bo],
                 launch:[...l],

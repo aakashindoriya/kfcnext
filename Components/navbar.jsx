@@ -6,7 +6,6 @@ export default function Navbar(){
     const [isMobile] = useMediaQuery("(max-width: 768px)")
     return (
         <Box bg={"white"} zIndex="100" position="sticky" top={"0px"}  >
-            <Box>aakash indoriya </Box>
             <Divider></Divider>
             <Flex w={"80%"} justifyContent={"space-between"} h={"100px"} m={"auto"} bg={"white"} zIndex="1000000000px" opacity="1000px">
           <Center>

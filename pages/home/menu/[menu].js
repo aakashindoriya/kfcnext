@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getmenu } from "../../../Components/redux/actions/menu.action"
 import MenuCategory from "../../../Components/menupagecomponents/menucatagories"
 import Menucard from "../../../Components/menupagecomponents/menucard"
+import { getCart } from "../../../Components/redux/actions/cart.actions"
 
 export default function Menu(){
 let menu=useSelector((store)=>store.menu)
@@ -36,6 +37,7 @@ let dispatch=useDispatch()
         dispatch(getmenu()).then(()=>{
             executeScroll(id.menu)
         })
+        dispatch(getCart())
         
          },[])
 

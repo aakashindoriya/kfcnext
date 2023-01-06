@@ -3,8 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export const authRegister = (data) => async (dispatch) => {
-    console.log(data)
-    return
+   
     try {
         dispatch({ type: AUTH_REGISTER_REQUEST });
         const res = await axios.post("../api/user/signup", {...data.data})
@@ -42,7 +41,7 @@ export const authLogin = (data) => async (dispatch) => {
         dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data });
     } catch (error) {
         console.log(error)
-        // dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data } });
+        dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data } });
     }
 }
 

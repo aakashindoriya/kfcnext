@@ -11,7 +11,6 @@ export default function Menucard(props){
     let [product,setproduct]=useState({})
     let dispatch=useDispatch()
     let cart=useSelector((store)=>store.cart)
-
     let [present,setPresent]=useState(false)
     useEffect(()=>{
         let val=cart.carts.filter((el)=>el.productId._id==_id)
@@ -24,6 +23,7 @@ export default function Menucard(props){
         }
         
     },[cart.carts])
+
     function handleaddcart(){
        if(isAuthenticated){
         dispatch(addProductToCart(_id))
@@ -46,7 +46,7 @@ export default function Menucard(props){
    }
     return(
 
-        <Box padding={6} gap={2} >
+        <Box id={_id} padding={6} gap={2} >
             <Image src={image}/>
            
             <Box alignItems="flex-start" display={"flex"} as="h2" mt='2'>
