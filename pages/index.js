@@ -10,7 +10,7 @@ export default function Homepage(){
     return(
         <>
         
-        <Box>
+        <Box w={"100%"} boxSizing="border-box">
             <Carousel />
             <Welcome />
             <CategoryCard />

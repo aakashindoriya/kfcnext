@@ -1,4 +1,4 @@
-import { GetProducts, Uplodeproduct } from "../../../backend/controllers/product.controller"
+import { GetProducts,  Uplodeproduct } from "../../../backend/controllers/product.controller"
 import connectDB from "../../../backend/connect.db"
 const handler=async(req,res)=>{
     if(req.method==="POST"){

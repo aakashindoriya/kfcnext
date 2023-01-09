@@ -1,4 +1,4 @@
-import { Box, Input } from '@chakra-ui/react'
+import { Box, Button, Input } from '@chakra-ui/react'
 import { Cursor } from 'mongoose'
 import React, { useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -69,7 +69,7 @@ function Search() {
             if(ref){ref.scrollIntoView({behavior:"smooth"})}
             
         }}
-        >{el.title}</Box>
+        ><Button>{el.title}</Button></Box>
         )}
     </Box>
     }

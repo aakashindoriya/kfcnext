@@ -43,6 +43,7 @@ import {
           carts: [...payload],
           total:payload.reduce((ac,el)=>ac+(Number(el.quantity)*Number(el.productId.price)),0)
         }
+        console.log(obj1)
         return obj1;
       case GET_CART_FAILURE:
         return {

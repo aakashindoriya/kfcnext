@@ -1,4 +1,4 @@
-import {  Grid } from "@chakra-ui/react"
+import {  Box, Grid } from "@chakra-ui/react"
 import CatCard from "./singlecard"
 
 export default function CategoryCard(){
@@ -14,12 +14,14 @@ let arr=[
 
 ]
     return(
-        <Grid templateColumns={{md:"repeat(4,1fr)",sm:"repeat(2,1fr)"}}
+       <Box width={"100%"}>
+         <Grid templateColumns={{md:"repeat(4,1fr)",sm:"repeat(2,1fr)"}}
         w="78%"
         margin={"auto"}
         gap={7}>
             {arr.map((el)=><CatCard {...el}/>)}
             
         </Grid>
+       </Box>
     )
 }
