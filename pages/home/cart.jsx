@@ -21,16 +21,16 @@ useEffect(()=>{
             </Box>
         )
     }
-    return(<Box>
-        <Flex w={"85%"} m="auto" gap={10}>
-            <Box w="65%">
+    return(<Box w="100%" padding={"3%"}>
+        <Flex w={["100%","85%","85%"]} m="auto" gap={10} flexDirection={["column","column","row"]}>
+            <Box w={["100%","100%","65%"]}>
             {cart.carts.map((el)=><CartRow {...el} key={el._id} />)}
-            <Flex justifyContent={"space-between"} m={5}>
+            <Flex justifyContent={"space-between"} m={5} flexDirection={["column","column","row"]}>
                 <Button  variant='link' >Remove All</Button>
                 <Link href="/home/menu/CHICKEN%20BUCKETS"><Button variant='outline' borderRadius={"full"}>Add More Menu</Button></Link>
             </Flex>
             </Box>
-            <Box w="30%">
+            <Box w={["1005","100%","30%"]}>
                 <Bill {...cart} />
             </Box>
         </Flex>

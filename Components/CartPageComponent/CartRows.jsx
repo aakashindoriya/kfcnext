@@ -19,25 +19,25 @@ function CartRow(props){
 
 
     return(
-        <Flex w={"full"} justifyContent="space-between" bg="rgb(248,247,245)" m={5} p={2}>
+        <Flex w={"full"} justifyContent="space-between" bg="rgb(248,247,245)" m={5} p={2} flexDirection={["column","column","row"]}>
             <Flex gap={2}>
-                <Image w="144px" h="108px" src={image}/>
+                <Image  h="108px" src={image}/>
                 <Box textAlign={"left"}  gap={5}>
                     <Box mb={5}>
-                    <Text fontSize={"14px"}>{title}</Text>
-                    <Box w="300px">
-                    <Text fontSize={"12px"}>{desc}</Text>
+                    <Text fontSize={"14"}>{title}</Text>
+                    <Box w="300">
+                    <Text fontSize={"12"}>{desc}</Text>
                     </Box>
                     </Box>
                     <Button  variant='link'>Remove</Button>
                 </Box>
             </Flex>
-            <Flex  gap={3} alignItems={"center"}>
-                <Box>
+            <Flex  gap={3} alignItems={"center"} flexDirection={["column","row","row"]}>
+                <Flex flexDirection={["column","row","row"]}  alignItems="center" justifyContent="center">
                     <Button p={1} mr={2} colorScheme='teal' variant='outline' borderRadius={"full"} onClick={()=>handleQuantity(props.quantity-1)}>-</Button>
                     {props.quantity}
                     <Button p={1} ml={2} colorScheme='teal' variant='outline' borderRadius={"full"} onClick={()=>handleQuantity(props.quantity+1)}>+</Button>
-                </Box>
+                </Flex>
                 <Box>
                     <Text>{price}</Text>
                 </Box>
