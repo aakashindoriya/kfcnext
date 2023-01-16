@@ -3,6 +3,7 @@ import { neworder ,GetMyProducts} from "../../../backend/controllers/order.contr
 import {Auth} from "../../../backend/middlewares/user.Auth.middleware"
 const handler=async(req,res)=>{
     if(req.method==="POST"){
+        
        return await neworder(req,res)
     }
     if(req.method=="GET"){

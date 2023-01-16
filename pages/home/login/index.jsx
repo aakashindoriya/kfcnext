@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../../../Components/redux/actions/auth.actions";
+import { getCart } from "../../../Components/redux/actions/cart.actions";
 let obj={
     email:"",
     password:""
@@ -26,6 +27,7 @@ export default function Login(){
                 isClosable: true,
             });
             let time = setTimeout(() => {
+                dispatch(getCart())
                 router.push("/");
             }, 3000);
             return () => clearTimeout(time);

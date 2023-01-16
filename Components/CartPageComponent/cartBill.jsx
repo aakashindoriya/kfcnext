@@ -1,11 +1,16 @@
 import { Box, Button, Checkbox, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { PostOrder } from "../redux/actions/order.actions";
+import Checkout from "./checkout";
 
-function Bill({carts,total}){
+function Bill(props){
+
+    
     return(
         <Box p={5} m={2} boxShadow='xl' display={"grid"} justifyContent="center" gap={3} borderRadius="5%">
             <Box>
             <Box textAlign={"left"} mt={2} mb={5}>
-                <Text as={"b"} fontSize="xl">{carts.length} ITEMS</Text>
+                <Text as={"b"} fontSize="xl">{props.carts.length} ITEMS</Text>
             </Box>
             <Flex gap={1} alignItems="center" bg="rgb(248,247,245)" p={1} justifyContent="space-around">
                 <Image src="https://online.kfc.co.in/static/media/Offers_Coupon_Icon.72b94c41.svg"/>
@@ -14,11 +19,11 @@ function Bill({carts,total}){
             </Flex>
             <Flex justifyContent={"space-between"}>
                 <Text>Subtotal</Text>
-                <Text>₹{total.toFixed(2)}</Text>
+                <Text>₹{props.total.toFixed(2)}</Text>
             </Flex>
             <Flex justifyContent={"space-between"}>
                 <Text>GST</Text>
-                <Text>{(total*(12/100)).toFixed(2)}</Text>
+                <Text>{(props.total*(12/100)).toFixed(2)}</Text>
             </Flex>
             </Box>
             <Divider orientation='horizontal' mt={5} mb={5} />
@@ -35,8 +40,7 @@ function Bill({carts,total}){
                 </Box>
             </Flex>
             <Box w="100%">
-                <Button colorScheme={"red"} w="200px"><Flex gap={4}><Text color={"white"} fontSize={"12px"} >Checkout</Text>
-                <Text color={"white"} fontSize={"12px"}>₹{(total+(total*(12/100))).toFixed(2)}</Text></Flex></Button>
+                <Checkout {...props} />
             </Box>
 
         </Box>

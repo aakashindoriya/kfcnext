@@ -1,8 +1,12 @@
 import Order from "../mdels/order.model"
-
+import Cart from "../mdels/cart.model";
 export const neworder=(async(req,res)=>{
     try {
+       
         let book =await Order.create({...req.body,userId:req.userId})
+        for(let i=0;i<req.body.carts.length;i++){
+            await Cart.deleteOne(req.body.carts[i])
+        }
        return res.status(201).send(book)
     }catch(e){
         return res.status(404).send(e.message)

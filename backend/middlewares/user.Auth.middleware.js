@@ -2,8 +2,8 @@
 import {verify} from "jsonwebtoken"
 import User from "../mdels/user.model"
 import dustbin from "../mdels/dustbin.model"
-
 export const Auth=handler=>async (req,res,next)=>{
+    
     let token=req.headers["authorization"]
     if(!token){
       return  res.status(404).send("You can not perform this action")
