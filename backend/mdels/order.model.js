@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 let kfcorder=new mongoose.Schema({
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
     carts:[{type:mongoose.Schema.Types.ObjectId,ref:"kfccart"}],
     total:Number,
     payment:{type:String,enum:["prepaid","cash"],default:"cash"},

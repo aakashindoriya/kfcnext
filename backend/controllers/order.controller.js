@@ -5,7 +5,7 @@ export const neworder=(async(req,res)=>{
        
         let book =await Order.create({...req.body,userId:req.userId})
         for(let i=0;i<req.body.carts.length;i++){
-            await Cart.deleteOne(req.body.carts[i])
+            await Cart.deleteOne({_id:req.body.carts[i]})
         }
        return res.status(201).send(book)
     }catch(e){
@@ -38,6 +38,7 @@ export const GetPerticulerOrder=(async(req,res)=>{
 
 export const GetMyProducts=(async(req,res)=>{
     try {
+        console.log(req.userId)
         let book =await Order.find({userId:req.userId}).populate("carts",{_id:0}).populate("carts.productId")
         for(let i=0;i<book.length;i++){
             book[i]=await book[i].populate("carts.productId")
