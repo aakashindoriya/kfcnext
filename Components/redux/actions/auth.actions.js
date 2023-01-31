@@ -35,12 +35,12 @@ export const authRegister = (data) => async (dispatch) => {
 
 export const authLogin = (data) => async (dispatch) => {
     try {
-        console.log(data)
+        
         dispatch({ type: AUTH_LOGIN_REQUEST });
         const res = await axios.post("../api/user/login", data);
         dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data });
     } catch (error) {
-        console.log(error)
+        
         dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data } });
     }
 }

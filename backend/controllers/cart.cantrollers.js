@@ -3,7 +3,7 @@ import Cart from "../mdels/cart.model";
 export const GetCart=(async(req,res)=>{
     const id = req.userId;
     try {
-        const cart = await Cart.find({ userId: id }).populate('productId')
+        const cart = await Cart.find({ userId: id ,status:false}).populate('productId')
         res.status(200).send({ data: cart });
     }
     catch (error) {

@@ -10,6 +10,7 @@ switch(type){
     case GETMYORDER:return{ ...state,myorders:[...paylode],isloding:false}
     case POSTORDER:return{...state,isorderd:true,isloding:false}
     case LODDING:return{...state,isloding:true}
+    case "error":return {...state,isloding:false}
 
 
 

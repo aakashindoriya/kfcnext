@@ -5,7 +5,7 @@ export const neworder=(async(req,res)=>{
        
         let book =await Order.create({...req.body,userId:req.userId})
         for(let i=0;i<req.body.carts.length;i++){
-            await Cart.deleteOne({_id:req.body.carts[i]})
+            await Cart.updateOne({_id:req.body.carts[i]},{$set:{status:true}})
         }
        return res.status(201).send(book)
     }catch(e){
@@ -39,7 +39,7 @@ export const GetPerticulerOrder=(async(req,res)=>{
 export const GetMyProducts=(async(req,res)=>{
     try {
         console.log(req.userId)
-        let book =await Order.find({userId:req.userId}).populate("carts",{_id:0}).populate("carts.productId")
+        let book =await Order.find({userId:req.userId}).populate("carts",{_id:0,status:0,__v:0,userId:0}).populate("userId",{_id:0,password:0,role:0,__v:0})
         for(let i=0;i<book.length;i++){
             book[i]=await book[i].populate("carts.productId")
         }

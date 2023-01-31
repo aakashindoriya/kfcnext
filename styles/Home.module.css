@@ -1,3 +1,19 @@
+.select option{
+background-color: blue;
+}
+.select select{
+  background-color: transparent;
+  width: 100%;
+  color: white;
+  border: transparent;
+  border-bottom: 1px solid white;
+  height: 40px;
+  direction: inherit;
+  size: 5;
+  }
+  .select :active{
+    border: transparent;
+  }
 .main {
   display: flex;
   flex-direction: column;

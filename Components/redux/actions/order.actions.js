@@ -15,9 +15,18 @@ creds.carts=arr
         Authorization: Cookies.get("token"),
     }
 });
-getCart()
- dispatch({type:POSTORDER})
+creds.toast({
+    title: `Thanks for your order`,
+    description: "we will let you know about order status in a while",
+    status: "success",
+    duration: 2000,
+    isClosable: true,
+    position:"top"
+})
+ dispatch(getCart())
+ return dispatch({type:POSTORDER})
 }catch(e){
 console.log(e)
+dispatch({type:"error"})
 }
 }
