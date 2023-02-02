@@ -1,11 +1,12 @@
 
 import { Box, Button, Center, Divider, Image, Input, Spinner, Stack, Text, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authLogin } from "../../../Components/redux/actions/auth.actions";
-import { getCart } from "../../../Components/redux/actions/cart.actions";
+import { authLogin } from "../../Components/redux/actions/auth.actions";
+import { getCart } from "../../Components/redux/actions/cart.actions";
 let obj={
     email:"",
     password:""
@@ -80,7 +81,7 @@ export default function Login(){
             <Button w="full" variant='outline' onClick={HandleSignIn}>Login</Button>
         </Box>
         <Box> 
-        <Text fontSize={"12px"}>Don't have an account ? </Text>
+        <Text fontSize={"12px"}>Don't have an account ? {<Link href="/home/signup">Sign-up</Link>}</Text>
         </Box>
         </Box>
     </Box>

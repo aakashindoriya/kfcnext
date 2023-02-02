@@ -15,9 +15,13 @@ export const neworder=(async(req,res)=>{
 })
 
 export const Allorder=(async(req,res)=>{
+    
     let page=req.query.page||1
     try {
-        let book =await Order.find({}).limit(10).skip(page-1*10)
+        let book =await Order.find({}).populate("carts",{productId:1,quantity:1,_id:0}).limit(20).skip((page-1)*20)
+        for(let i=0;i<book.length;i++){
+            await book[i].populate("carts.productId")
+        }
        return res.status(201).send(book)
     }catch(e){
         return res.status(404).send(e.message)

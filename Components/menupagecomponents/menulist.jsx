@@ -12,7 +12,7 @@ export default function MenuList({scroll}){
     let arr=["HOT DEALS","CHICKEN BUCKETS","HOT LAUNCHES","BOX MEALS","BURGERS","BIRYANI BUCKETS","SNACS"]
     return (
         <List spacing={5} mt={2}>
-            {arr.map((el)=><ListItem textAlign={"left"} onClick={()=>scroll(el)} ><Link>{el}</Link></ListItem>)}
+            {arr.map((el)=><ListItem key={el} textAlign={"left"} onClick={()=>scroll(el)} ><Link>{el}</Link></ListItem>)}
         </List>
     )
 }

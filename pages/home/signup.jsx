@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect ,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authRegister } from "../../../Components/redux/actions/auth.actions";
+import { authRegister } from "../../Components/redux/actions/auth.actions";
 let obj={
     name:"",
     email:"",

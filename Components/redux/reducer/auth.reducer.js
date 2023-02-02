@@ -20,6 +20,7 @@ import {
       user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
       isLogin:Cookies.get("token")?true:false
     },
+    
   };
   
   export default function authReducer(state = initialState, { type, payload }) {
