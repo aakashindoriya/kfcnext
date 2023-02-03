@@ -53,3 +53,15 @@ export const GetMyProducts=(async(req,res)=>{
     }
  
 })
+
+export const ChangeOrderStatus=(async(req,res)=>{
+    try {
+        
+        let book =await Order.updateOne({_id:req.query.id},{$set:{status:req.body.status}})
+        let ans=await Order.find({_id:req.query.id})
+     return res.status(201).send(book)
+    }catch(e){
+        return res.status(404).send(e.message)
+    }
+ 
+})

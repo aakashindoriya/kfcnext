@@ -41,3 +41,18 @@ export const getorders=()=>async(dispatch)=>{
         dispatch({ type: ERROR, payload: { message: error.response.data } });
     }
 }
+
+export const ChangeStatus=(prop)=>async(dispatch)=>{
+    try{
+        dispatch({ type: LOADING });
+        const res=await axios.patch(`../api/order/${prop.id}`,{...prop},{
+            headers:{
+                "Authorization":Cookies.get("adminToken")
+            }
+        })
+        console.log(res)
+        return dispatch(getorders())
+    }catch(error){
+        dispatch({ type: ERROR, payload: { message: error.response.data } });
+    }
+}
