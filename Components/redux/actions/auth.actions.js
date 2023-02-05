@@ -38,6 +38,7 @@ export const authLogin = (data) => async (dispatch) => {
         
         dispatch({ type: AUTH_LOGIN_REQUEST });
         const res = await axios.post("../api/user/login", data);
+        Cookies.set("useremail",data.email)
         dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data });
     } catch (error) {
         
@@ -46,5 +47,6 @@ export const authLogin = (data) => async (dispatch) => {
 }
 
 export const authLogout = () => (dispatch) => {
+    Cookies.remove("useremail")
     dispatch({ type: AUTH_LOGOUT });
 }

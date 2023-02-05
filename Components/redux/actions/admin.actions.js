@@ -17,6 +17,14 @@ export const AdminAuth = (data) => async (dispatch) => {
         })
         dispatch({ type: LOGIN, payload: res.data });
     } catch (error) {
+        data.toast({
+            title: `we are really soory`,
+            description: error.response.data,
+            status: "error",
+            duration: 2000,
+            isClosable: true,
+            position:"top"
+        })
         const res = await axios.post("../api/adminlogin", data);
         dispatch({ type: ERROR, payload: { message: error.response.data } });
     }
@@ -50,7 +58,7 @@ export const ChangeStatus=(prop)=>async(dispatch)=>{
                 "Authorization":Cookies.get("adminToken")
             }
         })
-        console.log(res)
+       
         return dispatch(getorders())
     }catch(error){
         dispatch({ type: ERROR, payload: { message: error.response.data } });

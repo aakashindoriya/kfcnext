@@ -41,16 +41,16 @@ let dispatch=useDispatch()
         
          },[])
 
-   
-    return(<Flex w={"80%"} m="auto">
-        <Box position="sticky" top={"150px"} w={"60%"}>
-        {!isMobile&&<Box  position="sticky" top={"150px"} w={"100%"} >
+
+    return(<Flex w={isMobile?"90%":"80%"} m="auto">
+        {!isMobile&&<Box position="sticky" top={"150px"} w={"60%"}>
+        <Box  position="sticky" top={"150px"} w={"100%"} >
         <MenuCategory scroll={executeScroll}/>
 
-        </Box>}
         </Box>
+        </Box>}
         <Box>
-        <Box  h="150px"  ref={HD} display={"flex"} alignItems="center" justifyContent={"left"}><Text as={"b"}  fontSize={"22px"} >CHICKEN BUCKETS</Text></Box>
+        <Box  h="150px" w="100%"  ref={HD} display={"flex"} alignItems="center" justifyContent={"left"}><Text as={"b"}  fontSize={"22px"} >CHICKEN BUCKETS</Text></Box>
         <Grid templateColumns={{md:"repeat(2,1fr)"}} gap={6} bg={"rgb(248,247,245)"}  >
             {menu.isLoding&&<Image src="https://online.kfc.co.in/KFC_Loader_Gif.gif"/>}
             {menu.chicken&&menu.chicken.map((el)=>{

@@ -1,12 +1,12 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { Provider } from 'react-redux'
-import Navbar from '../Components/navbar'
+import KFCnavbar from '../Components/Newnavbar'
 import { store } from '../Components/redux/store'
 export default function App({ Component, pageProps }) {
   return(
     <Provider store={store}>
     <ChakraProvider>
-    <Navbar />
+    <KFCnavbar/>
     <Component {...pageProps} />
     </ChakraProvider>
     </Provider>

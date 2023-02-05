@@ -12,7 +12,6 @@ let kfcorder=new mongoose.Schema({
         delevry:String,
     }
 },{ timestamps: true })
-
 let Order =mongoose.models.kfcorder||mongoose.model("kfcorder",kfcorder)
 
 export default Order

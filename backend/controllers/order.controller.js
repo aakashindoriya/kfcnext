@@ -18,7 +18,7 @@ export const Allorder=(async(req,res)=>{
     
     let page=req.query.page||1
     try {
-        let book =await Order.find({}).populate("carts",{productId:1,quantity:1,_id:0}).limit(20).skip((page-1)*20)
+        let book =await Order.find({}).populate("userId").populate("carts",{productId:1,quantity:1,_id:0}).limit(20).skip((page-1)*20)
         for(let i=0;i<book.length;i++){
             await book[i].populate("carts.productId")
         }
