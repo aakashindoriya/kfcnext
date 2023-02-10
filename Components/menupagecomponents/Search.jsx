@@ -37,7 +37,7 @@ function Search() {
     }
     
   return (
-    <Box position={"relative"} onMouseLeave={()=>setShow(false)} onMouseEnter={()=>setShow(true)}>
+    <Box position={"relative"} onMouseLeave={()=>setShow(false)} onMouseEnter={()=>setShow(true)} >
         <Input
     m="3%"
     w={"90%"}
@@ -54,7 +54,7 @@ function Search() {
     onFocusCapture={()=>setShow(true)}
     />
     {
-        show&&<Box position={"absolute"} zIndex="100" bgColor={"white"}>
+        show&&<Box position={"absolute"} zIndex="100" bgColor={"white"} >
         {find.map((el)=>
         <Box  h="40px" 
         onMouseEnter={()=>setShow(true)}
@@ -69,7 +69,7 @@ function Search() {
             if(ref){ref.scrollIntoView({behavior:"smooth"})}
             
         }}
-        ><Button>{el.title}</Button></Box>
+        ><Button w="100%">{el.title}</Button></Box>
         )}
     </Box>
     }

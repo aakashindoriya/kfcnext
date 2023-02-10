@@ -7,7 +7,8 @@ import { getmenu } from "../../../Components/redux/actions/menu.action"
 import MenuCategory from "../../../Components/menupagecomponents/menucatagories"
 import Menucard from "../../../Components/menupagecomponents/menucard"
 import { getCart } from "../../../Components/redux/actions/cart.actions"
-
+import { store } from "../../../Components/redux/store"
+import Search from "../../../Components/menupagecomponents/Search"
 export default function Menu(){
 let menu=useSelector((store)=>store.menu)
 let router=useRouter()
@@ -37,12 +38,16 @@ let dispatch=useDispatch()
         dispatch(getmenu()).then(()=>{
             executeScroll(id.menu)
         })
-        dispatch(getCart())
         
          },[])
 
 
-    return(<Flex w={isMobile?"90%":"80%"} m="auto">
+    return(
+        <Box>
+            {isMobile&&<Box pos={"sticky"} top="55px" bg={"white"} zIndex="100">
+                <Search />
+                </Box>}
+            <Flex w={isMobile?"90%":"80%"} m="auto">
         {!isMobile&&<Box position="sticky" top={"150px"} w={"60%"}>
         <Box  position="sticky" top={"150px"} w={"100%"} >
         <MenuCategory scroll={executeScroll}/>
@@ -94,5 +99,13 @@ let dispatch=useDispatch()
             })}
         </Grid>
         </Box>
-    </Flex>)
+    </Flex>
+        </Box>
+
+    )
 }
+export async function getServerSideProps() {
+    
+   store.dispatch(getCart())
+   return { props: { } }
+  }

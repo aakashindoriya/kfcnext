@@ -15,8 +15,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AdminAuth } from '../redux/actions/admin.actions';
   let obj={
-    email:"",
-    password:""
+    email:"aakashindoriya12346@gmail.com",
+    password:"aakashbitu"
   }
   export default function AdminLogin() {
     let toast =useToast()

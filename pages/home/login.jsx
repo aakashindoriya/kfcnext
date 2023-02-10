@@ -45,7 +45,7 @@ export default function Login(){
 
     },[isLogin,error])
     function HandleSignIn(){
-       dispatch(authLogin(data))
+       dispatch(authLogin({...data,toast}))
 
     }
     function HandleForm(e){
@@ -56,7 +56,7 @@ export default function Login(){
       }
  return (
     <Box>
-        <Box w="450px" m={"auto"} display="grid" gap={5}>
+        <Box w={["90%","90%","35%"]}  m={"auto"} display="grid" gap={5}>
             <Box as="b" fontSize={"14px"}>Sign In / Sign up</Box> 
         <Center>
         <Box>
@@ -64,7 +64,7 @@ export default function Login(){
         </Box>
         </Center>
         <Box>
-            <Text as={"b"} fontSize={"xl"}>LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!</Text>
+            <Text as={"b"} fontSize={["sm","sm","xl"]}>LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!</Text>
         </Box>
         <Box>
         <Stack spacing={3}>
@@ -78,7 +78,7 @@ export default function Login(){
         </Box>
         <Divider />
         <Box w="full">
-            <Button w="full" variant='outline' onClick={HandleSignIn}>Login</Button>
+            <Button w="full" variant='outline' onClick={HandleSignIn}>Sign-In</Button>
         </Box>
         <Box> 
         <Text fontSize={"12px"}>Don't have an account ? {<Link href="/home/signup">Sign-up</Link>}</Text>

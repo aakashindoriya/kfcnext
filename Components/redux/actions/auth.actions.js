@@ -41,7 +41,14 @@ export const authLogin = (data) => async (dispatch) => {
         Cookies.set("useremail",data.email)
         dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data });
     } catch (error) {
-        
+        data.toast({
+            title: `ERROR`,
+            description: error.response.data,
+            status: "error",
+            duration: 2000,
+            isClosable: true,
+            position:"top"
+        })
         dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data } });
     }
 }

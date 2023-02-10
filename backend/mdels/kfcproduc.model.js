@@ -4,7 +4,9 @@ let kfcproduct=new mongoose.Schema({
       title: {type:String,unique:true},
       desc: {type:String,unique:true},
       price: {type:Number},
-      type: {type:String}
+      type: {type:String},
+      offer:Boolean,
+      offerprice:Number
 })
 
 let Product =mongoose.models.kfcproduct||mongoose.model("kfcproduct",kfcproduct)

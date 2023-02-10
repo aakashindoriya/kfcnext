@@ -2,9 +2,9 @@ import { Box, Flex, Heading } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useDispatch, useSelector } from 'react-redux'
-import AdminLogin from '../../Components/AdminComponents/AdminLogin'
-import OrderList from '../../Components/AdminComponents/OrderList'
-import { ChangeStatus, getorders } from '../../Components/redux/actions/admin.actions'
+import AdminLogin from '../../../Components/AdminComponents/AdminLogin'
+import OrderList from '../../../Components/AdminComponents/OrderList'
+import { ChangeStatus, getorders } from '../../../Components/redux/actions/admin.actions'
 import io from "socket.io-client"
 let socket
 export default function Admin() {
