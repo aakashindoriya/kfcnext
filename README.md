@@ -38,11 +38,18 @@ menu page will scroll automatically to the user-selected category also there is 
 
 # Add product to Cart
 
-To add a product to the cart user need to login in to system. By clicking on acount on navbar user will redirect to login/signup page.
+To add a product to the cart user need to login in to system. By clicking on account on navbar user will redirect to login/signup page.
+here are some screenshot how Login/Signup form Look like
 
 
+[adding-product-to-cart.webm](https://user-images.githubusercontent.com/37771235/218047156-1f89fb8b-eb7a-4655-8381-60a6655c05e6.webm)
+
+# Place Order 
+
+To place a order user need to go to cart page there will be a bill genrated at right side ,by clicking or order button a popup form open asking for the address .fill the form and hit place order button.
 
 
+[order.webm](https://user-images.githubusercontent.com/37771235/218052907-86edd7dc-38d6-4820-a85e-9f76cf928802.webm)
 
 
 
