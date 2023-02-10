@@ -4,7 +4,7 @@
 </aside>
 
 # Live Demo
-## https://clonekfc-aakashindoriya.vercel.app/
+## https://akfc-aakashindoriya.vercel.app/
 
 # TechStack
 - next-js
