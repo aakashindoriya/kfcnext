@@ -52,6 +52,13 @@ To place a order user need to go to cart page there will be a bill genrated at r
 [order.webm](https://user-images.githubusercontent.com/37771235/218052907-86edd7dc-38d6-4820-a85e-9f76cf928802.webm)
 
 
+#Admin panel
+To visite admin panel edit url and add **/home/admin**  for verification you need to put 
+## email :-**aakashindoriya1234@gmail.com **
+## password:-**aakashbitu**
+
+
+
 
 
 
