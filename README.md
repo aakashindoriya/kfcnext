@@ -56,6 +56,8 @@ To place a order user need to go to cart page there will be a bill genrated at r
 To visite admin panel edit url and add **/home/admin**  for verification you need to put 
 ## email :-**aakashindoriya1234@gmail.com **
 ## password:-**aakashbitu**
+(note) websocket project deployment on vercel is not free so in deployed link websocket will not work
+[admin websocket.webm](https://user-images.githubusercontent.com/37771235/218059355-58ee6f2c-79d5-455d-9518-64f474d0ab71.webm)
 
 
 
