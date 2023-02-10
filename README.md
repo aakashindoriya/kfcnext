@@ -1,39 +1,75 @@
-# kfcnext
-KFC app with nextjs 
-KFC_WEBSITE_CLONE
-KFC_website_clone where users can log in through their mobile numbers can order foods, and also can see their total ordered items and their prices in the navbar. And also users can see their ordered foods by clicking on the cart logo and making payments to order. A collaborative project, built-in 5 days by a team of 3 developers.
+# KFC
+<aside>
+ KFC is an online or offline fast-food provider. This is an **individual** project carried out in 5 days, A Full stack project using **Nextjs** with both the client and admin side.
+</aside>
 
-Tech Stack
-1. React
-2. next-js
-3. JavaScript
-4. Chakra ui
-5. mongodb
+# Live Demo
+## https://clonekfc-aakashindoriya.vercel.app/
 
-Live Demo
-https://clonekfc-aakashindoriya.vercel.app/
+# TechStack
+- next-js
+- Chakra-ui
+- framer-motion
+- MongoDB
+- mongoose
+- web-socket
+- JSON-web-token
+- argon2
+- react-beautiful-dnd
+- js-cookie
+- react-redux
+- redux-thunk
 
-
-
-
-
-1. Landing Page
-If new user enters in the system then the user will land here. 
-![image](https://user-images.githubusercontent.com/37771235/208418267-66414964-edf1-4a06-b100-05cbd5a35c8f.png)
-
-
-2. Home Page
-Here the user will interact with different categories of foods. 
-![image](https://user-images.githubusercontent.com/37771235/208418440-b97e966d-7707-43a2-8dd9-f512e7c9c905.png)
+# Landing Page
 
 
-3. Login Page
-Here the user can login through a mobile number. Example- mobile: 123456789 
+on [https://akfc-aakashindoriya.vercel.app/](https://akfc-aakashindoriya.vercel.app/) user receive an interactive home page
 
-3. Menu Page
-Here the user can select different food items. r
+![up1](https://user-images.githubusercontent.com/37771235/218017016-1a1daa92-9964-4e6a-841a-1c507b180922.png)
 
-4 cart Page 
-here user will have his cart from where he can finally pay
+# Menu page
+
+by clicking on the menu button  or any product category user will land  [https://akfc-aakashindoriya.vercel.app/home/menu/](https://akfc-aakashindoriya.vercel.app/home/menu/CHICKEN%20BUCKETS)[id]
+menu page will scroll automatically to the user-selected category also there is a search box availabe to seach a perticular item form menu .
+
+------
+[menupage scrolling](https://user-images.githubusercontent.com/37771235/218021267-780b602e-24b3-47ec-abc3-148f3478c853.webm)
+
+
+# Add product to Cart
+
+To add a product to the cart user need to login in to system. By clicking on account on navbar user will redirect to login/signup page.
+here are some screenshot how Login/Signup form Look like
+
+
+[adding-product-to-cart.webm](https://user-images.githubusercontent.com/37771235/218047156-1f89fb8b-eb7a-4655-8381-60a6655c05e6.webm)
+
+# Place Order 
+
+To place a order user need to go to cart page there will be a bill genrated at right side ,by clicking or order button a popup form open asking for the address .fill the form and hit place order button.
+
+
+[order.webm](https://user-images.githubusercontent.com/37771235/218052907-86edd7dc-38d6-4820-a85e-9f76cf928802.webm)
+
+
+# Admin panel
+To visite admin panel edit url and add **/home/admin**  for verification you need to put 
+## email :-**aakashindoriya1234@gmail.com **
+## password:-**aakashbitu**
+(note) websocket project deployment on vercel is not free so in deployed link websocket will not work
+
+[admin websocket.webm](https://user-images.githubusercontent.com/37771235/218059355-58ee6f2c-79d5-455d-9518-64f474d0ab71.webm)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
